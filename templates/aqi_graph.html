@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width" name="viewport">
+  <title>HARM | AQI | Graphs</title>
+  <!-- Favicons -->
+  <link href={{ url_for('static',filename='img/favicon.png' )}} rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href={{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css' )}} rel="stylesheet">
+  <link href={{ url_for('static',filename='vendor/bootstrap-icons/bootstrap-icons.css' )}} rel="stylesheet">
+  <link href={{ url_for('static',filename='vendor/boxicons/css/boxicons.min.css' )}} rel="stylesheet">
+  <link href={{ url_for('static',filename='vendor/remixicon/remixicon.css' )}} rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href={{ url_for('static',filename='css/style.css' )}} rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <!--Start Logo-->
+    <div class="d-flex align-items-center justify-content-between">
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <a href="/home" class="logo d-flex align-items-center">
+        <img src={{ url_for('static',filename='img/logo.png' )}} alt="">
+      </a>
+    </div>
+    <!-- End Logo -->
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <!-- Start Dashboard Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <!-- End Dashboard Nav -->
+
+      <!-- Start About This Page Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('about_this')}}">
+          <i class="bi bi-question-circle"></i>
+          <span>About This</span>
+        </a>
+      </li>
+      <!-- End About This Page Nav -->
+    
+      <!-- Start AQI Nav-->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-target="#aqi-nav"data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>AQI</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="aqi-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{url_for('aqi_graph')}}" class="active">
+              <i class="bi bi-circle"></i><span>Graphs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('aqi_tables')}}">
+              <i class="bi bi-circle"></i><span>Tables</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+       <!-- End AQI Nav -->
+
+
+      <!-- Start Heatwaves Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#heatwave-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Heatwaves</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="heatwave-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{url_for('heatwaves_graph')}}">
+              <i class="bi bi-circle"></i><span>Graphs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('heatwaves_tables')}}">
+              <i class="bi bi-circle"></i><span>Tables</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+       <!-- End Heatwaves Nav -->
+
+
+      <!-- Start About Us Page Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('about_us')}}">
+          <i class="bi bi-people-fill"></i>
+          <span>About Us</span>
+        </a>
+      </li>
+      <!-- End About Us Page Nav -->
+    </ul>
+  </aside>
+  <!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Predicted AQI Values for 2023</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{url_for('home')}}">Home</a></li>
+          <li class="breadcrumb-item">AQI</li>
+          <li class="breadcrumb-item active">Graphs</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+
+
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Area Chart</h5>
+
+            <!-- Area Chart -->
+            <div id="areaChart"></div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                const series = {
+                  "nizamabad": {
+                    "nizamabadaqi": [
+                    55.650691, 
+                    55.310736, 
+                    52.894935, 
+                    49.799906, 
+                    60.306354, 
+                    56.106139, 
+                    59.896014, 
+                    60.052301, 
+                    60.858217, 
+                    56.752103, 
+                    54.220763, 
+                    56.751164
+                    ],
+                    "monthly": [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  },
+                  "warangal": {
+                    "warangalaqi": [
+                    91.565972, 
+                    91.331182, 
+                    85.623853, 
+                    70.983545, 
+                    73.711160, 
+                    78.637011, 
+                    74.509030, 
+                    71.115206, 
+                    62.896360, 
+                    69.945028, 
+                    76.484426, 
+                    74.426785
+                    ],
+                    "aqi": [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  },
+                  "karimnagar": {
+                    "karimnagaraqi": [
+                    130.768243, 
+                    124.607345, 
+                    122.296322, 
+                    109.311136, 
+                    113.543543, 
+                    115.898134, 
+                    117.803831, 
+                    106.505110, 
+                    110.033716, 
+                    116.760061, 
+                    114.730039, 
+                    114.876721
+                    ],
+                    "aqi": [
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  },
+                  "khammam": {
+                    "khammamaqi": [
+                    105.509215, 
+                    103.849266, 
+                    99.695902, 
+                    97.129057, 
+                    96.258696, 
+                    97.916264, 
+                    98.379130, 
+                    95.123070, 
+                    99.623439, 
+                    97.279072, 
+                    101.892884, 
+                    102.361848
+                    ],
+                    "aqi": [
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  },
+                  "adilabad": {
+                    "adilabadaqi": [
+                    63.392592,
+                    55.665586,
+                    52.158109,
+                    44.242962,
+                    45.685884,
+                    66.870080,
+                    47.963947,
+                    51.263928,
+                    50.515200,
+                    48.896276,
+                    60.508441,
+                    58.060399
+                    ],
+                    "adilabadmonth": [
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  }
+                }
+                new ApexCharts(document.querySelector("#areaChart"), {
+                  series: [{
+                    name: "Nizamabad",
+                    data: series.nizamabad.nizamabadaqi
+                  },
+                  {
+                    name: "Karimnagar",
+                    data: series.karimnagar.karimnagaraqi
+                  },
+                  {
+                    name: "Warangal",
+                    data: series.warangal.warangalaqi
+                  },
+                  {
+                    name: "Khammam",
+                    data: series.khammam.khammamaqi
+                  },
+                  {
+                    name: "Adilabad",
+                    data: series.adilabad.adilabadaqi
+                  }],
+                  chart: {
+                    type: 'area',
+                    height: 350,
+                    zoom: {
+                      enabled: false
+                    }
+                  },
+                  dataLabels: {
+                    enabled: false
+                  },
+                  stroke: {
+                    curve: 'straight'
+                  },
+                  subtitle: {
+                    text: 'AQI',
+                    align: 'center'
+                  },
+                  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                  xaxis: {
+                    type: 'date',
+                    labels: {
+                    datetimeFormatter: {
+                      year: 'yyyy',
+                    }
+                  }
+                  },
+                  yaxis: {
+                    opposite: false
+                  },
+                  legend: {
+                    horizontalAlign: 'center'
+                  },
+                  tooltip: {
+                    y: {
+                      formatter: function(val) {
+                        return (Math.round(val * 100) / 100).toFixed(3);
+                      }
+                    }
+                  }
+                }).render();
+              });
+            </script>
+            <!-- End Area Chart -->
+
+          <!-- Default Card -->
+
+          <div class="row">
+          <div class="col-lg-6">
+
+
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Average Values</h5>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">City</th>
+                    <th scope="col">Predicted AQI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Warangal</td>
+                    <td>76.768</td>
+                  </tr>
+                  <tr>
+                    <td>Khammam</td>
+                    <td>99.584</td>
+                  </tr>
+                  <tr>
+                    <td>Karimnagar</td>
+                    <td>116.426</td>
+                  </tr>
+                  <tr>
+                    <td>Nizamabad</td>
+                    <td>56.549</td>
+                  </tr>
+                  <tr>
+                    <td>Adilabad</td>
+                    <td>53.768</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div><!-- End Default Card -->
+          </div>
+
+          <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Peak Values</h5>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">City</th>
+                    <th scope="col">Prediected Peak Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Warangal</td>
+                    <td>91.565</td>
+                  </tr>
+                  <tr>
+                    <td>Khammam</td>
+                    <td>105.519</td>
+                  </tr>
+                  <tr>
+                    <td>Karimnagar</td>
+                    <td>130.768</td>
+                  </tr>
+                  <tr>
+                    <td>Nizamabad</td>
+                    <td>60.858</td>
+                  </tr>
+                  <tr>
+                    <td>Adilabad</td>
+                    <td>66.870</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div><!-- End Default Card -->
+        </div>
+      </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      
+
+
+
+      
+
+      
+
+
+      
+
+
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Column Chart</h5>
+
+            <!-- Column Chart -->
+            <div id="columnChart"></div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new ApexCharts(document.querySelector("#columnChart"), {
+                  series: [{
+                    name: 'Nizamabad',
+                    data: [
+                      55.650691, 
+                      55.310736, 
+                      52.894935, 
+                      49.799906, 
+                      60.306354, 
+                      56.106139, 
+                      59.896014, 
+                      60.052301, 
+                      60.858217, 
+                      56.752103, 
+                      54.220763, 
+                      56.751164      
+                      ]
+                  }, {
+                    name: 'Warangal',
+                    data: [
+                    91.565972, 
+                    91.331182, 
+                    85.623853, 
+                    70.983545, 
+                    73.711160, 
+                    78.637011, 
+                    74.509030, 
+                    71.115206, 
+                    62.896360, 
+                    69.945028, 
+                    76.484426, 
+                    74.426785
+                    ]
+                  }, {
+                    name: 'Karimnagar',
+                    data: [
+                    130.768243, 
+                    124.607345, 
+                    122.296322, 
+                    109.311136, 
+                    113.543543, 
+                    115.898134, 
+                    117.803831, 
+                    106.505110, 
+                    110.033716, 
+                    116.760061, 
+                    114.730039, 
+                    114.876721
+                    ]
+                  },
+                  {
+                    name: 'Khammam',
+                    data: [
+                    105.509215, 
+                    103.849266, 
+                    99.695902, 
+                    97.129057, 
+                    96.258696, 
+                    97.916264, 
+                    98.379130, 
+                    95.123070, 
+                    99.623439, 
+                    97.279072, 
+                    101.892884, 
+                    102.361848
+                    ]
+                  },
+                  {
+                    name: 'Adilabad',
+                    data: [
+                    63.392592,
+                    55.665586,
+                    52.158109,
+                    44.242962,
+                    45.685884,
+                    66.870080,
+                    47.963947,
+                    51.263928,
+                    50.515200,
+                    48.896276,
+                    60.508441,
+                    58.060399
+                    ]
+                  }],
+                  chart: {
+                    type: 'bar',
+                    height: 350
+                  },
+                  plotOptions: {
+                    bar: {
+                      horizontal: false,
+                      columnWidth: '75%',
+                      endingShape: 'rounded',
+                      groupPadding: 0,
+                      pointPadding: 0,
+                      dataLabels: {
+                        enabled: true,
+                      }
+                    },
+                  },
+                  dataLabels: {
+                    enabled: false
+                  },
+                  stroke: {
+                    show: true,
+                    width: 3,
+                    colors: ['transparent']
+                  },
+                  xaxis: {
+                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Sepember', 'October', 'November', 'December'],
+                  },
+                  yaxis: {
+                    title: {
+                      text: 'AQI'
+                    }
+                  },
+                  fill: {
+                    opacity: 1
+                  },
+                  tooltip: {
+                    y: {
+                      formatter: function(val) {
+                        return (Math.round(val * 100) / 100).toFixed(3);
+                      }
+                    }
+                  }
+                }).render();
+                
+              });
+            </script>
+            <!-- End Column Chart -->
+
+
+        <div class="row">
+                      <!-- Default Card -->
+            
+          <div class="card">
+            <div class="card-body inference">
+              <h5 class="card-title">Inference</h5>
+              The above graph shows the comparison of AQI between each city for all the twelve month in 2023.
+              From this graph we can infer which city has the worst AQI and better AQI
+            </div>
+          </div><!-- End Default Card -->
+
+        </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="aqitrendheading">
+        <h1>AQI Trend Among Cities</h5>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Legend</h5>
+            
+            <img src={{ url_for('static',filename='img/aqi_legend.png' )}} class="card-img-bottom legend" alt="">
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+      <!-- Khammam AQI-->
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Khammam AQI</h5>
+
+            <div id="columnChartKhammam"></div>
+
+
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new ApexCharts(document.querySelector("#columnChartKhammam"), {
+                  series: [{
+                    name: 'Khammam',
+                    data: [
+                    105.509215, 
+                    103.849266, 
+                    99.695902, 
+                    97.129057, 
+                    96.258696, 
+                    97.916264, 
+                    98.379130, 
+                    95.123070, 
+                    99.623439, 
+                    97.279072, 
+                    101.892884, 
+                    102.361848    
+                      ]
+                  }],
+                  chart: {
+                    type: 'bar',
+                    height: 350
+                  },
+                  plotOptions: {
+                    bar: {
+                      horizontal: false,
+                      columnWidth: '100%',
+                      endingShape: 'rounded',
+                      groupPadding: 0,
+                      pointPadding: 0,
+                      dataLabels: {
+                        enabled: true,
+                      }
+                    },
+                  },
+                  dataLabels: {
+                    enabled: false
+                  },
+                  stroke: {
+                    show: true,
+                    width: 3,
+                    colors: ['transparent']
+                  },
+                  xaxis: {
+                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Sepember', 'October', 'November', 'December'],
+                  },
+                  yaxis: {  
+                  },
+                  fill: {
+                    opacity: 1
+                  },
+                  tooltip: {
+                    y: {
+                      formatter: function(val) {
+                        return (Math.round(val * 100) / 100).toFixed(3);
+                      }
+                    }
+                  },
+                  colors: [
+                  function ({ value, seriesIndex, dataPointIndex, w }) {
+                      if (value < 51.0) {
+                        return "##00B050";
+                      } 
+                      else if (value >= 51.0 && value <= 100) {
+                        return "#669900";
+                      }
+                      else if (value >= 101.0 && value <= 250) {
+                        return "#E5B8B7";
+                      } 
+                    }
+                ]
+                }).render();
+                
+              });
+            </script>
+            
+
+          </div>
+        </div>
+      </div>
+      <!-- End Khammam AQI -->
+
+
+
+      <!--Adilabad AQI-->
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Adilabad AQI</h5>
+
+            <div id="columnChartAdilabad"></div>
+
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new ApexCharts(document.querySelector("#columnChartAdilabad"), {
+                  series: [{
+                    name: 'Adilabad',
+                    data: [
+                    63.392592,
+                    55.665586,
+                    52.158109,
+                    44.242962,
+                    45.685884,
+                    66.870080,
+                    47.963947,
+                    51.263928,
+                    50.515200,
+                    48.896276,
+                    60.508441,
+                    58.060399   
+                      ]
+                  }],
+                  chart: {
+                    type: 'bar',
+                    height: 350
+                  },
+                  plotOptions: {
+                    bar: {
+                      horizontal: false,
+                      columnWidth: '100%',
+                      endingShape: 'rounded',
+                      groupPadding: 0,
+                      pointPadding: 0,
+                      dataLabels: {
+                        enabled: true,
+                      }
+                    },
+                  },
+                  dataLabels: {
+                    enabled: false
+                  },
+                  stroke: {
+                    show: true,
+                    width: 3,
+                    colors: ['transparent']
+                  },
+                  xaxis: {
+                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Sepember', 'October', 'November', 'December'],
+                  },
+                  yaxis: {  
+                  },
+                  fill: {
+                    opacity: 1
+                  },
+                  tooltip: {
+                    y: {
+                      formatter: function(val) {
+                        return (Math.round(val * 100) / 100).toFixed(3);
+                      }
+                    }
+                  },
+                  colors: [
+                  function ({ value, seriesIndex, dataPointIndex, w }) {
+                      if (value < 51.0) {
+                        return "#00B050";
+                      } 
+                      else if (value >= 51.0 && value <= 100) {
+                        return "#669900";
+                      }
+                      else if (value >= 101.0 && value <= 250) {
+                        return "#E5B8B7";
+                      } 
+                    }
+                ]
+                }).render();
+                
+              });
+            </script>
+
+          </div>
+        </div>
+      </div>
+      <!--End Adilabad AQI-->
+
+
+      <!-- Karimnagar AQI-->
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Karimnagar AQI</h5>
+
+            <div id="columnChartKarimnagar"></div>
+
+
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new ApexCharts(document.querySelector("#columnChartKarimnagar"), {
+                  series: [{
+                    name: 'Karimnagar',
+                    data: [
+                    130.768243, 
+                    124.607345, 
+                    122.296322, 
+                    109.311136, 
+                    113.543543, 
+                    115.898134, 
+                    117.803831, 
+                    106.505110, 
+                    110.033716, 
+                    116.760061, 
+                    114.730039, 
+                    114.876721
+                      
+                      ]
+                  }],
+                  chart: {
+                    type: 'bar',
+                    height: 350
+                  },
+                  plotOptions: {
+                    bar: {
+                      horizontal: false,
+                      columnWidth: '100%',
+                      endingShape: 'rounded',
+                      groupPadding: 0,
+                      pointPadding: 0,
+                      dataLabels: {
+                        enabled: true,
+                      }
+                    },
+                  },
+                  dataLabels: {
+                    enabled: false
+                  },
+                  stroke: {
+                    show: true,
+                    width: 3,
+                    colors: ['transparent']
+                  },
+                  xaxis: {
+                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Sepember', 'October', 'November', 'December'],
+                  },
+                  yaxis: {  
+                  },
+                  fill: {
+                    opacity: 1
+                  },
+                  tooltip: {
+                    y: {
+                      formatter: function(val) {
+                        return (Math.round(val * 100) / 100).toFixed(3);
+                      }
+                    }
+                  },
+                  colors: [
+                  function ({ value, seriesIndex, dataPointIndex, w }) {
+                      if (value < 51.0) {
+                        return "#00B050";
+                      } 
+                      else if (value >= 51.0 && value <= 100) {
+                        return "#669900";
+                      }
+                      else if (value >= 101.0 && value <= 250) {
+                        return "#E5B8B7";
+                      } 
+                    }
+                ]
+                }).render();
+                
+              });
+            </script>
+            
+
+          </div>
+        </div>
+      </div>
+      <!-- End Karimnagar AQI -->
+
+            <!-- Warangal AQI-->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Warangal AQI</h5>
+      
+                  <div id="columnChartWarangal"></div>
+      
+      
+      
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      new ApexCharts(document.querySelector("#columnChartWarangal"), {
+                        series: [{
+                          name: 'Warangal',
+                          data: [
+                          91.565972, 
+                          91.331182, 
+                          85.623853, 
+                          70.983545, 
+                          73.711160, 
+                          78.637011, 
+                          74.509030, 
+                          71.115206, 
+                          62.896360, 
+                          69.945028, 
+                          76.484426, 
+                          74.426785
+                            
+                            ]
+                        }],
+                        chart: {
+                          type: 'bar',
+                          height: 350
+                        },
+                        plotOptions: {
+                          bar: {
+                            horizontal: false,
+                            columnWidth: '100%',
+                            endingShape: 'rounded',
+                            groupPadding: 0,
+                            pointPadding: 0,
+                            dataLabels: {
+                              enabled: true,
+                            }
+                          },
+                        },
+                        dataLabels: {
+                          enabled: false
+                        },
+                        stroke: {
+                          show: true,
+                          width: 3,
+                          colors: ['transparent']
+                        },
+                        xaxis: {
+                          categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Sepember', 'October', 'November', 'December'],
+                        },
+                        yaxis: {  
+                        },
+                        fill: {
+                          opacity: 1
+                        },
+                        tooltip: {
+                          y: {
+                            formatter: function(val) {
+                              return (Math.round(val * 100) / 100).toFixed(3);
+                            }
+                          }
+                        },
+                        colors: [
+                        function ({ value, seriesIndex, dataPointIndex, w }) {
+                            if (value < 51.0) {
+                              return "#00B050";
+                            } 
+                            else if (value >= 51.0 && value <= 100) {
+                              return "#669900";
+                            }
+                            else if (value >= 101.0 && value <= 250) {
+                              return "#E5B8B7";
+                            } 
+                          }
+                      ]
+                      }).render();
+                      
+                    });
+                  </script>
+                  
+      
+                </div>
+              </div>
+            </div>
+            <!-- End Karimnagar AQI -->
+
+      <!-- Nizamabad AQI-->
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Nizamabad AQI</h5>
+
+            <div id="columnChartNizamabad"></div>
+
+
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new ApexCharts(document.querySelector("#columnChartNizamabad"), {
+                  series: [{
+                    name: 'Nizamabad',
+                    data: [
+                    55.650691, 
+                    55.310736, 
+                    52.894935, 
+                    49.799906, 
+                    60.306354, 
+                    56.106139, 
+                    59.896014, 
+                    60.052301, 
+                    60.858217, 
+                    56.752103, 
+                    54.220763, 
+                    56.751164
+                      
+                      ]
+                  }],
+                  chart: {
+                    type: 'bar',
+                    height: 350
+                  },
+                  plotOptions: {
+                    bar: {
+                      horizontal: false,
+                      columnWidth: '100%',
+                      endingShape: 'rounded',
+                      groupPadding: 0,
+                      pointPadding: 0,
+                      dataLabels: {
+                        enabled: true,
+                      }
+                    },
+                  },
+                  dataLabels: {
+                    enabled: false
+                  },
+                  stroke: {
+                    show: true,
+                    width: 3,
+                    colors: ['transparent']
+                  },
+                  xaxis: {
+                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Sepember', 'October', 'November', 'December'],
+                  },
+                  yaxis: {  
+                  },
+                  fill: {
+                    opacity: 1
+                  },
+                  tooltip: {
+                    y: {
+                      formatter: function(val) {
+                        return (Math.round(val * 100) / 100).toFixed(3);
+                      }
+                    }
+                  },
+                  colors: [
+                  function ({ value, seriesIndex, dataPointIndex, w }) {
+                      if (value < 51.0) {
+                        return "#00B050";
+                      } 
+                      else if (value >= 51.0 && value <= 100) {
+                        return "#669900";
+                      }
+                      else if (value >= 101.0 && value <= 250) {
+                        return "#E5B8B7";
+                      } 
+                    }
+                ]
+                }).render();
+                
+              });
+            </script>
+            
+
+          </div>
+        </div>
+      </div>
+      <!-- End Nizamabad AQI -->
+    </div>
+
+  
+            
+
+
+
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Radar Chart</h5>
+
+            <!-- Radar Chart -->
+            <div id="radarChart"></div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new ApexCharts(document.querySelector("#radarChart"), {
+                  series: [{
+                    name: 'Nizamabad',
+                    data: [
+                      55.650691, 
+                      55.310736, 
+                      52.894935, 
+                      49.799906, 
+                      60.306354, 
+                      56.106139, 
+                      59.896014, 
+                      60.052301, 
+                      60.858217, 
+                      56.752103, 
+                      54.220763, 
+                      56.751164      
+                      ]
+                  }, {
+                    name: 'Warangal',
+                    data: [
+                    91.565972, 
+                    91.331182, 
+                    85.623853, 
+                    70.983545, 
+                    73.711160, 
+                    78.637011, 
+                    74.509030, 
+                    71.115206, 
+                    62.896360, 
+                    69.945028, 
+                    76.484426, 
+                    74.426785
+                    ]
+                  }, {
+                    name: 'Karimnagar',
+                    data: [
+                    130.768243, 
+                    124.607345, 
+                    122.296322, 
+                    109.311136, 
+                    113.543543, 
+                    115.898134, 
+                    117.803831, 
+                    106.505110, 
+                    110.033716, 
+                    116.760061, 
+                    114.730039, 
+                    114.876721
+                    ]
+                  },
+                  {
+                    name: 'Khammam',
+                    data: [
+                    105.509215, 
+                    103.849266, 
+                    99.695902, 
+                    97.129057, 
+                    96.258696, 
+                    97.916264, 
+                    98.379130, 
+                    95.123070, 
+                    99.623439, 
+                    97.279072, 
+                    101.892884, 
+                    102.361848
+                    ]
+                  },
+                  {
+                    name: 'Adilabad',
+                    data: [
+                    63.392592,
+                    55.665586,
+                    52.158109,
+                    44.242962,
+                    45.685884,
+                    66.870080,
+                    47.963947,
+                    51.263928,
+                    50.515200,
+                    48.896276,
+                    60.508441,
+                    58.060399
+                    ]
+                  }],
+                  chart: {
+                    height: 350,
+                    type: 'radar',
+                  },
+                  
+                  xaxis: {
+                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Sepember', 'October', 'November', 'December']
+                  }
+                }).render();
+              });
+            </script>
+            <!-- End Radar Chart -->
+
+          </div>
+        </div>
+      </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      NASSCOM Academic Grand Challenge on Climate Change
+    </div>
+
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Vendor JS Files -->
+  <script src={{ url_for('static',filename='vendor/apexcharts/apexcharts.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/chart.js')}} /chart.umd.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/echarts/echarts.min.js')}} "></script>
+
+  <!-- Template Main JS File -->
+  <script src={{ url_for('static',filename='js/main.js')}} "></script>
+
+</body>
+
+</html>

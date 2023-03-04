@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width" name="viewport">
+  <title>HARM | AQI | Tables</title>
+  <!-- Favicons -->
+  <link href={{ url_for('static',filename='img/favicon.png' )}} rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href={{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css' )}} rel="stylesheet">
+  <link href={{ url_for('static',filename='vendor/bootstrap-icons/bootstrap-icons.css' )}} rel="stylesheet">
+  <link href={{ url_for('static',filename='vendor/boxicons/css/boxicons.min.css' )}} rel="stylesheet">
+  <link href={{ url_for('static',filename='vendor/remixicon/remixicon.css' )}} rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href={{ url_for('static',filename='css/style.css' )}} rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <!--Start Logo-->
+    <div class="d-flex align-items-center justify-content-between">
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <a href="/home" class="logo d-flex align-items-center">
+        <img src={{ url_for('static',filename='img/logo.png' )}} alt="">
+      </a>
+    </div>
+    <!-- End Logo -->
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <!-- Start Dashboard Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <!-- End Dashboard Nav -->
+
+      <!-- Start About This Page Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('about_this')}}">
+          <i class="bi bi-question-circle"></i>
+          <span>About This</span>
+        </a>
+      </li>
+      <!-- End About This Page Nav -->
+    
+      <!-- Start AQI Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#aqi-nav"data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>AQI</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="aqi-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{url_for('aqi_graph')}}">
+              <i class="bi bi-circle"></i><span>Graphs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('aqi_tables')}}">
+              <i class="bi bi-circle"></i><span>Tables</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+       <!-- End AQI Nav -->
+
+
+      <!-- Start Heatwaves Nav-->
+      <li class="nav-item">
+        <a class="nav-link show" data-bs-target="#heatwave-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Heatwaves</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="heatwave-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{url_for('heatwaves_graph')}}">
+              <i class="bi bi-circle"></i><span>Graphs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('heatwaves_tables')}}" class="active">
+              <i class="bi bi-circle"></i><span>Tables</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+       <!-- End Heatwaves Nav -->
+
+
+      <!-- Start About Us Page Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('about_us')}}">
+          <i class="bi bi-people-fill"></i>
+          <span>About Us</span>
+        </a>
+      </li>
+      <!-- End About Us Page Nav -->
+    </ul>
+  </aside>
+  <!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Predicted Heatwaves for 2023</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{url_for('home')}}">Home</a></li>
+          <li class="breadcrumb-item">Heatwaves</li>
+          <li class="breadcrumb-item active">Tables</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+
+        <div class="col-lg-6">
+
+          <h5 class="card-title">Nizamabad</h5>
+
+              <!-- Table with hoverable rows -->
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Month</th>
+                    <th scope="col">Predicted Temperature</th>
+                    <th scope="col">Number of Heatwaves</th>
+                    <th scope="col">Heatwave Severity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>January</td>
+                    <td>27.0329545</td>
+                    <td>0</td>
+                    <td>Safe</td>
+                  </tr>
+                  <tr>
+                    <td>February</td>
+                    <td>27.530409</td>
+                    <td>0</td>
+                    <td>Safe</td>
+                  </tr>
+                  <tr>
+                    <td>March</td>
+                    <td>32.136062</td>
+                    <td>0</td>
+                    <td>Safe</td>
+                  </tr>
+                  <tr>
+                    <td>April</td>
+                    <td>34.3290595</td>
+                    <td>2</td>
+                    <td>Moderate</td>
+                  </tr>
+                  <tr>
+                    <td>May</td>
+                    <td>34.85117425</td>
+                    <td>3</td>
+                    <td>Moderate</td>
+                  </tr>
+                  <tr>
+                    <td>June</td>
+                    <td>32.6893954</td>
+                    <td>2</td>
+                    <td>Moderate</td>
+                  </tr>
+                  <tr>
+                    <td>July</td>
+                    <td>29.8663365</td>
+                    <td>0</td>
+                    <td>Safe</td>
+                  </tr>
+                  <tr>
+                    <td>August</td>
+                    <td>29.3021554</td>
+                    <td>0</td>
+                    <td>Safe</td>
+                  </tr>
+                  <tr>
+                    <td>September</td>
+                    <td>29.16541475</td>
+                    <td>0</td>
+                    <td>Safe</td>
+                  </tr>
+                  <tr>
+                    <td>October</td>
+                    <td>28.963084</td>
+                    <td>0</td>
+                    <td>Safe</td>
+                  </tr>
+                  <tr>
+                    <td>November</td>
+                    <td>27.2383378</td>
+                    <td>0</td>
+                    <td>Safe</td>
+                  </tr>
+                  <tr>
+                    <td>December</td>
+                    <td>25.260475</td>
+                    <td>0</td>
+                    <td>Safe</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- End Table with hoverable rows -->
+
+              
+
+            </div>
+
+            <div class="col-lg-6">
+
+              <h5 class="card-title">Warangal</h5>
+    
+                  <!-- Table with hoverable rows -->
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">Predicted Temperature</th>
+                        <th scope="col">Number of Heatwaves</th>
+                        <th scope="col">Heatwave Severity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>January</td>
+                        <td>28.7994515</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>February</td>
+                        <td>28.897124</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>March</td>
+                        <td>34.0684514</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>April</td>
+                        <td>35.562313</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>May</td>
+                        <td>36.36594375</td>
+                        <td>3</td>
+                        <td>Moderate</td>
+                      </tr>
+                      <tr>
+                        <td>June</td>
+                        <td>34.821351</td>
+                        <td>1</td>
+                        <td>Moderate</td>
+                      </tr>
+                      <tr>
+                        <td>July</td>
+                        <td>32.522411</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>August</td>
+                        <td>32.0597704</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>September</td>
+                        <td>32.09470325</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>October</td>
+                        <td>31.76533125</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>November</td>
+                        <td>30.472524</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>December</td>
+                        <td>27.91126025</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- End Table with hoverable rows -->
+    
+                  
+    
+                </div>
+
+
+                <div class="col-lg-6">
+
+                  <h5 class="card-title">Karimnagar</h5>
+        
+                      <!-- Table with hoverable rows -->
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Month</th>
+                            <th scope="col">Predicted Temperature</th>
+                            <th scope="col">Number of Heatwaves</th>
+                            <th scope="col">Heatwave Severity</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>January</td>
+                            <td>30.7644785</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                          <tr>
+                            <td>February</td>
+                            <td>30.6193135</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                          <tr>
+                            <td>March</td>
+                            <td>35.225679</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                          <tr>
+                            <td>April</td>
+                            <td>36.64968275</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                          <tr>
+                            <td>May</td>
+                            <td>37.544571</td>
+                            <td>1</td>
+                            <td>Moderate</td>
+                          </tr>
+                          <tr>
+                            <td>June</td>
+                            <td>36.3499924</td>
+                            <td>1</td>
+                            <td>Moderate</td>
+                          </tr>
+                          <tr>
+                            <td>July</td>
+                            <td>34.09495175</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                          <tr>
+                            <td>August</td>
+                            <td>33.755336</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                          <tr>
+                            <td>September</td>
+                            <td>33.7299915</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                          <tr>
+                            <td>October</td>
+                            <td>33.4519095</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                          <tr>
+                            <td>November</td>
+                            <td>32.3716232</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                          <tr>
+                            <td>December</td>
+                            <td>30.220582</td>
+                            <td>0</td>
+                            <td>Safe</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- End Table with hoverable rows -->
+        
+                      
+        
+                    </div>
+
+
+                    <div class="col-lg-6">
+
+                      <h5 class="card-title">Khammam</h5>
+            
+                          <!-- Table with hoverable rows -->
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th scope="col">Month</th>
+                                <th scope="col">Predicted Temperature</th>
+                                <th scope="col">Number of Heatwaves</th>
+                                <th scope="col">Heatwave Severity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>January</td>
+                                <td>30.465398</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>February</td>
+                                <td>30.68341075</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>March</td>
+                                <td>34.8286884</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>April</td>
+                                <td>36.2557615</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>May</td>
+                                <td>36.24444975</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>June</td>
+                                <td>35.1672024</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>July</td>
+                                <td>32.975726</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>August</td>
+                                <td>32.7180792</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>September</td>
+                                <td>32.711194</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>October</td>
+                                <td>32.4794535</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>November</td>
+                                <td>31.5011654</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                              <tr>
+                                <td>December</td>
+                                <td>29.028182</td>
+                                <td>0</td>
+                                <td>Safe</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <!-- End Table with hoverable rows -->
+            
+                          
+            
+                        </div>
+
+
+                        <div class="col-lg-6">
+
+              <h5 class="card-title">Adilabad</h5>
+    
+                  <!-- Table with hoverable rows -->
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">Predicted Temperature</th>
+                        <th scope="col">Number of Heatwaves</th>
+                        <th scope="col">Heatwave Severity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>January</td>
+                        <td>29.447135</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>February</td>
+                        <td>29.23010175</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>March</td>
+                        <td>35.2624366</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>April</td>
+                        <td>37.9149735</td>
+                        <td>1</td>
+                        <td>Moderate</td>
+                      </tr>
+                      <tr>
+                        <td>May</td>
+                        <td>38.83707075</td>
+                        <td>4</td>
+                        <td>Moderate</td>
+                      </tr>
+                      <tr>
+                        <td>June</td>
+                        <td>37.069046</td>
+                        <td>2</td>
+                        <td>Moderate</td>
+                      </tr>
+                      <tr>
+                        <td>July</td>
+                        <td>34.21066425</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>August</td>
+                        <td>33.8030982</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>September</td>
+                        <td>33.7074555</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>October</td>
+                        <td>33.253964</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>November</td>
+                        <td>30.9706704</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                      <tr>
+                        <td>December</td>
+                        <td>28.40935875</td>
+                        <td>0</td>
+                        <td>Safe</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- End Table with hoverable rows -->
+    
+                  
+    
+                </div>
+          </div>
+
+          
+
+
+          
+          
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      NASSCOM Academic Grand Challenge on Climate Change
+    </div>
+
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Vendor JS Files -->
+  <script src={{ url_for('static',filename='vendor/apexcharts/apexcharts.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/chart.js')}} /chart.umd.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/echarts/echarts.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/quill/quill.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/simple-datatables/simple-datatables.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/tinymce/tinymce.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/php-email-form/validate.js')}} "></script>
+
+  <!-- Template Main JS File -->
+  <script src={{ url_for('static',filename='js/main.js')}} "></script>
+
+</body>
+
+</html>

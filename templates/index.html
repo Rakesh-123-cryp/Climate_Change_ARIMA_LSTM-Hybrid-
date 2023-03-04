@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width" name="viewport">
+  <title>HARM | Homepage</title>
+  <!-- Favicons -->
+  <link href={{ url_for('static',filename='img/favicon.png')}} rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href={{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}} rel="stylesheet" type="text/css">
+  <link href={{ url_for('static',filename='vendor/bootstrap-icons/bootstrap-icons.css')}} rel="stylesheet" type="text/css">
+  <link href={{ url_for('static',filename='vendor/boxicons/css/boxicons.min.css')}} rel="stylesheet" type="text/css">
+  <link href={{ url_for('static',filename='vendor/remixicon/remixicon.css')}} rel="stylesheet" type="text/css">
+
+  <!-- Template Main CSS File -->
+  
+  <link type="text/css" rel="stylesheet" href={{ url_for('static',filename='css/style.css')}} >
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <!--Start Logo-->
+    <div class="d-flex align-items-center justify-content-between">
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <a href="{{url_for('home')}}" class="logo d-flex align-items-center">
+        <img src={{ url_for('static',filename='img/logo.png')}} class="main-logo" alt="">
+        
+      </a>
+
+      
+    </div>
+  
+    
+  </header> 
+  <!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <!-- Start Dashboard Nav-->
+      <li class="nav-item">
+        <a class="nav-link " href="{{url_for('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <!-- End Dashboard Nav -->
+
+      <!-- Start About This Page Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('about_this')}}">
+          <i class="bi bi-question-circle"></i>
+          <span>About This</span>
+        </a>
+      </li>
+      <!-- End About This Page Nav -->
+    
+      <!-- Start AQI Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#aqi-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>AQI</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="aqi-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{url_for('aqi_graph')}}">
+              <i class="bi bi-circle"></i><span>Graphs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('aqi_tables')}}">
+              <i class="bi bi-circle"></i><span>Tables</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+       <!-- End AQI Nav -->
+
+
+      <!-- Start Heatwaves Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#heatwave-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Heatwaves</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="heatwave-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{url_for('heatwaves_graph')}}">
+              <i class="bi bi-circle"></i><span>Graphs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('heatwaves_tables')}}">
+              <i class="bi bi-circle"></i><span>Tables</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+       <!-- End Heatwaves Nav -->
+
+      <!-- Start About Us Page Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('about_us')}}">
+          <i class="bi bi-people-fill"></i>
+          <span>About Us</span>
+        </a>
+      </li>
+      <!-- End About Us Page Nav -->
+    </ul>
+  </aside>
+  <!-- End Sidebar-->
+
+
+  <main id="main" class="main">
+
+    <!-- Start Page Title-->
+    <div class="pagetitle">
+      <h1>Heat Wave And AQI Predictor </h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{url_for('home')}}">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+    <!-- End Page Title -->
+
+    <section class="section dashboard">
+    <!-- Card with an image overlay -->
+    <div class="card">
+      <img src={{ url_for('static',filename='img/telangana.jpg')}} class="card-img-top" alt="..." height="450">
+      <div class="card-img-overlay">
+        <h5 class="card-title-overlay">Overview</h5>
+        <p class="card-text-overlay">Our main objective is to help the government build an AI/ML model that predicts the occurrences of heat waves and the Air Quality Index (AQI) for the cities of Adilabad, Nizamabad, Warangal, Karimnagar, and Khammam.<br><br>
+          
+          Heatwaves and poor air quality have been major concerns in Telangana in recent years. The state experiences severe heatwaves during the summer months. These heatwaves not only pose a threat to public health, but also lead to a rise in air pollution levels, as people resort to using air conditioning and other cooling appliances that emit greenhouse gases. The Air Quality Index (AQI) in Telangana often reaches unhealthy levels during these periods, causing respiratory problems and other health issues. It is essential for the government and individuals to take proactive measures to mitigate the effects of heatwaves and improve air quality in the state.
+        
+        </p>
+      </div>
+    </div>
+    <!-- End Card with an image overlay -->
+    
+    
+      <div class="row">
+      <!-- Card1 -->
+            <div class="col-xxl-6 col-md-6">
+              <div class="card info-card aqi-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Model Accuracy <span><br> AQI</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-clipboard-data-fill"></i>
+                      
+                    </div>
+                    <div class="ps-3">
+                      
+                      <h6>95%-96%</h6>
+                    
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- End Card1 -->
+
+
+            
+
+            <!-- Accuracy-->
+            <div class="col-xxl-6 col-md-6">
+              <div class="card info-card heatwave-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Model Accuracy <span> <br>Heatwaves</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-clipboard-data-fill"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>96%-97%</h6>
+                      
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+              
+            </div>
+            <!-- End Accuracy -->
+
+            
+
+            
+      </div>
+
+
+
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Predicted Monthly AQI Values for 2023</h5>
+
+            <!-- Area Chart -->
+            <div id="areaChart"></div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                const series = {
+                  "nizamabad": {
+                    "nizamabadaqi": [
+                    55.650691, 
+                    55.310736, 
+                    52.894935, 
+                    49.799906, 
+                    60.306354, 
+                    56.106139, 
+                    59.896014, 
+                    60.052301, 
+                    60.858217, 
+                    56.752103, 
+                    54.220763, 
+                    56.751164
+                    ],
+                    "monthly": [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  },
+                  "warangal": {
+                    "warangalaqi": [
+                    91.565972, 
+                    91.331182, 
+                    85.623853, 
+                    70.983545, 
+                    73.711160, 
+                    78.637011, 
+                    74.509030, 
+                    71.115206, 
+                    62.896360, 
+                    69.945028, 
+                    76.484426, 
+                    74.426785
+                    ],
+                    "aqi": [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  },
+                  "karimnagar": {
+                    "karimnagaraqi": [
+                    130.768243, 
+                    124.607345, 
+                    122.296322, 
+                    109.311136, 
+                    113.543543, 
+                    115.898134, 
+                    117.803831, 
+                    106.505110, 
+                    110.033716, 
+                    116.760061, 
+                    114.730039, 
+                    114.876721
+                    ],
+                    "aqi": [
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  },
+                  "khammam": {
+                    "khammamaqi": [
+                    105.509215, 
+                    103.849266, 
+                    99.695902, 
+                    97.129057, 
+                    96.258696, 
+                    97.916264, 
+                    98.379130, 
+                    95.123070, 
+                    99.623439, 
+                    97.279072, 
+                    101.892884, 
+                    102.361848
+                    ],
+                    "aqi": [
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  },
+                  "adilabad": {
+                    "adilabadaqi": [
+                    63.392592,
+                    55.665586,
+                    52.158109,
+                    44.242962,
+                    45.685884,
+                    66.870080,
+                    47.963947,
+                    51.263928,
+                    50.515200,
+                    48.896276,
+                    60.508441,
+                    58.060399
+                    ],
+                    "adilabadmonth": [
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December"
+                    ]
+                  }
+                }
+                new ApexCharts(document.querySelector("#areaChart"), {
+                  series: [{
+                    name: "Nizamabad",
+                    data: series.nizamabad.nizamabadaqi
+                  },
+                  {
+                    name: "Karimnagar",
+                    data: series.karimnagar.karimnagaraqi
+                  },
+                  {
+                    name: "Warangal",
+                    data: series.warangal.warangalaqi
+                  },
+                  {
+                    name: "Khammam",
+                    data: series.khammam.khammamaqi
+                  },
+                  {
+                    name: "Adilabad",
+                    data: series.adilabad.adilabadaqi
+                  }],
+                  chart: {
+                    type: 'area',
+                    height: 350,
+                    zoom: {
+                      enabled: false
+                    }
+                  },
+                  dataLabels: {
+                    enabled: false
+                  },
+                  stroke: {
+                    curve: 'straight'
+                  },
+                  subtitle: {
+                    text: 'AQI',
+                    align: 'center'
+                  },
+                  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                  xaxis: {
+                    type: 'date',
+                    labels: {
+                    datetimeFormatter: {
+                      year: 'yyyy',
+                    }
+                  }
+                  },
+                  yaxis: {
+                    opposite: false
+                  },
+                  legend: {
+                    horizontalAlign: 'center'
+                  },
+                  tooltip: {
+                    y: {
+                      formatter: function(val) {
+                        return (Math.round(val * 100) / 100).toFixed(3);
+                      }
+                    }
+                  }
+                }).render();
+              });
+            </script>
+
+              </div>
+              </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Predicted Monthly Temperature for 2023</h5>
+        
+                    <!-- Line Chart -->
+                    <div id="aqichart"></div>
+        
+                    <script>
+                      document.addEventListener("DOMContentLoaded", () => {
+                        new ApexCharts(document.querySelector("#aqichart"), {
+                          series: [{
+                            name: "Nizamabad",
+                            data: [27.0329545, 27.530409, 32.136062, 34.3290595, 34.85117425, 32.6893954, 29.8663365, 29.3021554, 29.16541475, 28.963084, 27.2383378, 25.260475]
+                          },
+                          {
+                            name: "Warangal",
+                            data: [28.7994515, 28.897124, 34.0684514, 35.562313, 36.36594375, 34.821351, 32.522411, 32.0597704, 32.09470325, 31.76533125, 30.472524, 27.91126025]
+                          },
+                          {
+                            name: "Karimnagar",
+                            data: [30.7644785, 30.6193135, 35.225679, 36.64968275, 37.544571, 36.3499924, 34.09495175, 33.755336, 33.7299915, 33.4519095, 32.3716232, 30.220582]
+                          },
+                          {
+                            name: "Khammam",
+                            data: [30.465398, 30.68341075, 34.8286884, 36.2557615, 36.24444975, 35.1672024, 32.975726, 32.7180792, 32.711194, 32.4794535, 31.5011654, 29.028182  ]
+                          },
+                          {
+                            name: "Adilabad",
+                            data: [29.447135, 29.23010175, 35.2624366, 37.9149735, 38.83707075, 37.069046, 34.21066425, 33.8030982, 33.7074555, 33.253964, 30.9706704, 28.40935875]
+                          }],
+                          chart: {
+                            height: 350,
+                            type: 'area',
+                            zoom: {
+                              enabled: false
+                            }
+                          },
+                          dataLabels: {
+                            enabled: false
+                          },
+                          stroke: {
+                            curve: 'straight'
+                          },
+                          grid: {
+                            row: {
+                              colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                              opacity: 0.5
+                            },
+                          },
+                          xaxis: {
+                            categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Sepember', 'October', 'November', 'December'],
+                          }
+                        }).render();
+                      });
+                    </script>
+                    <!-- End Line Chart -->
+        
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+            
+             
+
+    </section>
+  </main>
+  <!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      NASSCOM Academic Grand Challenge on Climate Change
+    </div>
+  </footer><!-- End Footer -->
+
+  <!-- Vendor JS Files -->
+  <script src={{ url_for('static',filename='vendor/apexcharts/apexcharts.min.js')}} ></script>
+  <script src={{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}} ></script>
+  <script src={{ url_for('static',filename='vendor/chart.js/chart.umd.js')}} ></script>
+  <script src={{ url_for('static',filename='vendor/echarts/echarts.min.js')}} ></script>
+
+  <!-- Template Main JS File -->
+  <script src={{ url_for('static',filename='js/main.js')}} ></script>
+
+</body>
+
+</html>
