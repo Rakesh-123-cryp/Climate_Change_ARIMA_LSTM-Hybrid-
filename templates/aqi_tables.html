@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width" name="viewport">
+  <title>HARM | AQI | Tables</title>
+  <!-- Favicons -->
+  <link href={{ url_for('static',filename='img/favicon.png' )}} rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href={{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css' )}} rel="stylesheet">
+  <link href={{ url_for('static',filename='vendor/bootstrap-icons/bootstrap-icons.css' )}} rel="stylesheet">
+  <link href={{ url_for('static',filename='vendor/boxicons/css/boxicons.min.css' )}} rel="stylesheet">
+  <link href={{ url_for('static',filename='vendor/remixicon/remixicon.css' )}} rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href={{ url_for('static',filename='css/style.css' )}} rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <!--Start Logo-->
+    <div class="d-flex align-items-center justify-content-between">
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <a href="/home" class="logo d-flex align-items-center">
+        <img src={{ url_for('static',filename='img/logo.png' )}} alt="">
+      </a>
+    </div>
+    <!-- End Logo -->
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <!-- Start Dashboard Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <!-- End Dashboard Nav -->
+
+      <!-- Start About This Page Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('about_this')}}">
+          <i class="bi bi-question-circle"></i>
+          <span>About This</span>
+        </a>
+      </li>
+      <!-- End About This Page Nav -->
+    
+      <!-- Start AQI Nav-->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-target="#aqi-nav"data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>AQI</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="aqi-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{url_for('aqi_graph')}}">
+              <i class="bi bi-circle"></i><span>Graphs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('aqi_tables')}}" class="active">
+              <i class="bi bi-circle"></i><span>Tables</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+       <!-- End AQI Nav -->
+
+
+      <!-- Start Heatwaves Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#heatwave-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Heatwaves</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="heatwave-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{url_for('heatwaves_graph')}}">
+              <i class="bi bi-circle"></i><span>Graphs</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('heatwaves_tables')}}">
+              <i class="bi bi-circle"></i><span>Tables</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+       <!-- End Heatwaves Nav -->
+
+
+      <!-- Start About Us Page Nav-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url_for('about_us')}}">
+          <i class="bi bi-people-fill"></i>
+          <span>About Us</span>
+        </a>
+      </li>
+      <!-- End About Us Page Nav -->
+    </ul>
+  </aside>
+  <!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Predicted AQI Values for 2023</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{url_for('home')}}">Home</a></li>
+          <li class="breadcrumb-item">AQI</li>
+          <li class="breadcrumb-item active">Tables</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+
+        <div class="col-lg-6">
+
+          <h5 class="card-title">Nizamabad</h5>
+
+              <!-- Table with hoverable rows -->
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Month</th>
+                    <th scope="col">Predicted AQI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>January</td>
+                    <td>55.650691</td>
+                  </tr>
+                  <tr>
+                    <td>February</td>
+                    <td>55.310736</td>
+                  </tr>
+                  <tr>
+                    <td>March</td>
+                    <td>52.894935</td>
+                  </tr>
+                  <tr>
+                    <td>April</td>
+                    <td>49.799906</td>
+                  </tr>
+                  <tr>
+                    <td>May</td>
+                    <td>60.306354</td>
+                  </tr>
+                  <tr>
+                    <td>June</td>
+                    <td>56.106139</td>
+                  </tr>
+                  <tr>
+                    <td>July</td>
+                    <td>59.896014</td>
+                  </tr>
+                  <tr>
+                    <td>August</td>
+                    <td>60.052301</td>
+                  </tr>
+                  <tr>
+                    <td>September</td>
+                    <td>60.858217</td>
+                  </tr>
+                  <tr>
+                    <td>October</td>
+                    <td>56.752103</td>
+                  </tr>
+                  <tr>
+                    <td>November</td>
+                    <td>54.220763</td>
+                  </tr>
+                  <tr>
+                    <td>December</td>
+                    <td>56.751164</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- End Table with hoverable rows -->
+
+              
+
+            </div>
+
+            <div class="col-lg-6">
+
+              <h5 class="card-title">Warangal</h5>
+    
+                  <!-- Table with hoverable rows -->
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">Predicted AQI</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>January</td>
+                        <td>91.565972</td>
+                      </tr>
+                      <tr>
+                        <td>February</td>
+                        <td>91.331182</td>
+                      </tr>
+                      <tr>
+                        <td>March</td>
+                        <td>85.623853</td>
+                      </tr>
+                      <tr>
+                        <td>April</td>
+                        <td>70.983545</td>
+                      </tr>
+                      <tr>
+                        <td>May</td>
+                        <td>73.711160</td>
+                      </tr>
+                      <tr>
+                        <td>June</td>
+                        <td>78.637011</td>
+                      </tr>
+                      <tr>
+                        <td>July</td>
+                        <td>74.509030</td>
+                      </tr>
+                      <tr>
+                        <td>August</td>
+                        <td>71.115206</td>
+                      </tr>
+                      <tr>
+                        <td>September</td>
+                        <td>62.896360</td>
+                      </tr>
+                      <tr>
+                        <td>October</td>
+                        <td>69.945028</td>
+                      </tr>
+                      <tr>
+                        <td>November</td>
+                        <td>76.484426</td>
+                      </tr>
+                      <tr>
+                        <td>December</td>
+                        <td>74.426785</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- End Table with hoverable rows -->
+    
+                  
+    
+                </div>
+
+
+                <div class="col-lg-6">
+
+                  <h5 class="card-title">Karimnagar</h5>
+        
+                      <!-- Table with hoverable rows -->
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Month</th>
+                            <th scope="col">Predicted AQI</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>January</td>
+                            <td>130.768243</td>
+                          </tr>
+                          <tr>
+                            <td>February</td>
+                            <td>124.607345</td>
+                          </tr>
+                          <tr>
+                            <td>March</td>
+                            <td>122.296322</td>
+                          </tr>
+                          <tr>
+                            <td>April</td>
+                            <td>109.311136</td>
+                          </tr>
+                          <tr>
+                            <td>May</td>
+                            <td>113.543543</td>
+                          </tr>
+                          <tr>
+                            <td>June</td>
+                            <td>115.898134</td>
+                          </tr>
+                          <tr>
+                            <td>July</td>
+                            <td>117.803831</td>
+                          </tr>
+                          <tr>
+                            <td>August</td>
+                            <td>106.505110</td>
+                          </tr>
+                          <tr>
+                            <td>September</td>
+                            <td>110.033716</td>
+                          </tr>
+                          <tr>
+                            <td>October</td>
+                            <td>116.760061</td>
+                          </tr>
+                          <tr>
+                            <td>November</td>
+                            <td>114.730039</td>
+                          </tr>
+                          <tr>
+                            <td>December</td>
+                            <td>114.876721</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- End Table with hoverable rows -->
+        
+                      
+        
+                    </div>
+
+
+                    <div class="col-lg-6">
+
+                      <h5 class="card-title">Khammam</h5>
+            
+                          <!-- Table with hoverable rows -->
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th scope="col">Month</th>
+                                <th scope="col">Predicted AQI</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>January</td>
+                                <td>105.509215</td>
+                              </tr>
+                              <tr>
+                                <td>February</td>
+                                <td>103.849266</td>
+                              </tr>
+                              <tr>
+                                <td>March</td>
+                                <td>99.695902</td>
+                              </tr>
+                              <tr>
+                                <td>April</td>
+                                <td>97.129057</td>
+                              </tr>
+                              <tr>
+                                <td>May</td>
+                                <td>96.258696</td>
+                              </tr>
+                              <tr>
+                                <td>June</td>
+                                <td>97.916264</td>
+                              </tr>
+                              <tr>
+                                <td>July</td>
+                                <td>98.379130</td>
+                              </tr>
+                              <tr>
+                                <td>August</td>
+                                <td>95.123070</td>
+                              </tr>
+                              <tr>
+                                <td>September</td>
+                                <td>99.623439</td>
+                              </tr>
+                              <tr>
+                                <td>October</td>
+                                <td>97.279072</td>
+                              </tr>
+                              <tr>
+                                <td>November</td>
+                                <td>101.892884</td>
+                              </tr>
+                              <tr>
+                                <td>December</td>
+                                <td>102.361848</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <!-- End Table with hoverable rows -->
+            
+                          
+            
+                        </div>
+
+
+                        <div class="col-lg-6">
+
+              <h5 class="card-title">Adilabad</h5>
+    
+                  <!-- Table with hoverable rows -->
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">Predicted AQI</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>January</td>
+                        <td>63.392592</td>
+                      </tr>
+                      <tr>
+                        <td>February</td>
+                        <td>55.665586</td>
+                      </tr>
+                      <tr>
+                        <td>March</td>
+                        <td>52.158109</td>
+                      </tr>
+                      <tr>
+                        <td>April</td>
+                        <td>44.242962</td>
+                      </tr>
+                      <tr>
+                        <td>May</td>
+                        <td>45.685884</td>
+                      </tr>
+                      <tr>
+                        <td>June</td>
+                        <td>66.870080</td>
+                      </tr>
+                      <tr>
+                        <td>July</td>
+                        <td>47.963947</td>
+                      </tr>
+                      <tr>
+                        <td>August</td>
+                        <td>51.263928</td>
+                      </tr>
+                      <tr>
+                        <td>September</td>
+                        <td>50.515200</td>
+                      </tr>
+                      <tr>
+                        <td>October</td>
+                        <td>48.896276</td>
+                      </tr>
+                      <tr>
+                        <td>November</td>
+                        <td>60.508441</td>
+                      </tr>
+                      <tr>
+                        <td>December</td>
+                        <td>58.060399</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- End Table with hoverable rows -->
+    
+                  
+    
+                </div>
+          </div>
+
+          
+
+
+          
+          
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      NASSCOM Academic Grand Challenge on Climate Change
+    </div>
+
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Vendor JS Files -->
+  <script src={{ url_for('static',filename='vendor/apexcharts/apexcharts.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/chart.js')}} /chart.umd.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/echarts/echarts.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/quill/quill.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/simple-datatables/simple-datatables.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/tinymce/tinymce.min.js')}} "></script>
+  <script src={{ url_for('static',filename='vendor/php-email-form/validate.js')}} "></script>
+
+  <!-- Template Main JS File -->
+  <script src={{ url_for('static',filename='js/main.js')}} "></script>
+
+</body>
+
+</html>
