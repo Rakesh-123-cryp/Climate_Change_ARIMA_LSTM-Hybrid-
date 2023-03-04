@@ -18,7 +18,6 @@ l=[data1,data2,data3,data4,data5]
 
 # %%
 dates = pd.date_range("01/01/1982","31/12/2022",inclusive="both")
-dates
 
 # %%
 for i in l:
@@ -150,9 +149,6 @@ plt.plot(final_fore1)
 
 # %%
 final_fore1 = final_fore1.iloc[26:,:]
-
-# %%
-final_fore1
 
 # %% [markdown]
 # ### seasonal
@@ -368,9 +364,6 @@ plt.plot(final_fore1)
 
 # %%
 final_fore1 = final_fore1.iloc[26:,:]
-
-# %%
-final_fore1
 
 # %% [markdown]
 # ### seasonal
@@ -590,9 +583,6 @@ plt.plot(final_fore1)
 # %%
 final_fore1 = final_fore1.iloc[26:,:]
 
-# %%
-final_fore1
-
 # %% [markdown]
 # ### seasonal
 
@@ -808,9 +798,6 @@ plt.plot(final_fore1)
 # %%
 final_fore1 = final_fore1.iloc[26:,:]
 
-# %%
-final_fore1
-
 # %% [markdown]
 # ### seasonal
 
@@ -1025,9 +1012,6 @@ plt.plot(final_fore1)
 
 # %%
 final_fore1 = final_fore1.iloc[26:,:]
-
-# %%
-final_fore1
 
 # %% [markdown]
 # ### seasonal
