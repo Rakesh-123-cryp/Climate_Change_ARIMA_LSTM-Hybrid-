@@ -14,6 +14,9 @@ The AQI_predictions.py file contains the python script used to generate predicti
 Due to RAM constraints, the VSCode workbench provided was unable to train the LSTM models, and thus the predictions for heat waves and Air quality index are provided seperately in the Heat_wave_predictions.pdf and the AQI_predictions.pdf files respectfully.
 
 The app.py file contains the python FLASK script for the frontend website [found here](https://8080-eeadbadeabbaefdfedabceacf.examlyiopb.examly.io/)
+python3 app.py 
+runs the website.
+
 The html templates are found in the templates/ folder. 
 
 # Requirements
