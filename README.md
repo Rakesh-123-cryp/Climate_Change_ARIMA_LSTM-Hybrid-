@@ -1,4 +1,5 @@
-# 7edbb52a-ffe1-48cd-b5a5-fecdcec3f5c7
+# ARIMA LSTM Hybrid model
+
 https://sonarcloud.io/summary/overall?id=examly-test_7edbb52a-ffe1-48cd-b5a5-fecdcec3f5c7
 
 NASSCOM academic grand challenge on climate change
